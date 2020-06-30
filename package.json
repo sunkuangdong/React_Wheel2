@@ -1,0 +1,20 @@
+{
+  "name": "React_Wheel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunkuangdong/React_Wheel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunkuangdong/React_Wheel/issues"
+  },
+  "homepage": "https://github.com/sunkuangdong/React_Wheel#readme"
+}
