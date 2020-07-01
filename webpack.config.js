@@ -1,10 +1,14 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     // 程序的入口在哪里
     entry: {
         index: './lib/index.tsx'
+    },
+    // 支持多种文件
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
     },
     // 配置出口
     output: {
@@ -30,5 +34,22 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'index.html'
         })
-    ]
+    ],
+    // 告诉webpack下面的库是外部的库
+    externals: {
+        react: {
+            // 对应不同的打包工具
+            commonjs: 'react',
+            commonjs2: 'react',
+            amd: 'react',
+            root: 'React',
+        },
+        'react-dom': {
+            // 对应不同的打包工具
+            commonjs: 'react-dom',
+            commonjs2: 'react-dom',
+            amd: 'react-dom',
+            root: 'ReactDOM',
+        },
+    }
 }
