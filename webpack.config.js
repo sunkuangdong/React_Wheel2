@@ -1,4 +1,5 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: 'production',
     // 程序的入口在哪里
@@ -23,5 +24,11 @@ module.exports = {
             // 如果用了ts文件,使用下面loader翻译成js
             loader: 'awesome-typescript-loader'
         }]
-    }
+    },
+    // 自动找到index.html文件并显示它
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'index.html'
+        })
+    ]
 }

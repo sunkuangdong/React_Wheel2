@@ -19,6 +19,7 @@
   "homepage": "https://github.com/sunkuangdong/React_Wheel#readme",
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1",
+    "html-webpack-plugin": "^4.3.0",
     "ts-loader": "^7.0.5",
     "typescript": "^3.3.3333",
     "webpack": "^4.29.6",
