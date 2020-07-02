@@ -2,7 +2,7 @@
   "name": "React_Wheel",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/lib/index.js",
+  "main": "dist/lib/index",
   "types": "dist/lib/index",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --config=jest.config.js --runInBand",
@@ -23,8 +23,10 @@
   "devDependencies": {
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
+    "@types/jest": "^26.0.3",
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
+    "@types/react-test-renderer": "^16.9.2",
     "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^26.1.0",
     "cross-env": "^7.0.2",
