@@ -19,14 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0f819f-91e7-4b74-b6c7-da01f8a41058" name="Default Changelist" comment="自动加载所有的 icon/*.svg 文件">
-      <change beforePath="$PROJECT_DIR$/.idea/React_Wheel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/React_Wheel.iml" afterDir="false" />
+    <list default="true" id="4a0f819f-91e7-4b74-b6c7-da01f8a41058" name="Default Changelist" comment="添加 CSS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/icon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icon.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +80,7 @@
       <workItem from="1593486006745" duration="231000" />
       <workItem from="1593486275795" duration="365000" />
       <workItem from="1593486722833" duration="8000" />
-      <workItem from="1594197369113" duration="16221000" />
+      <workItem from="1594197369113" duration="17023000" />
     </task>
     <task id="LOCAL-00001" summary="创建 Icon 组件">
       <created>1594202223495</created>
@@ -107,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594264641370</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="添加 CSS">
+      <created>1594286604990</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1594286604991</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +150,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="创建 Icon 组件" />
     <MESSAGE value="自动加载所有的 icon/*.svg 文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="自动加载所有的 icon/*.svg 文件" />
+    <MESSAGE value="添加 CSS" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加 CSS" />
   </component>
   <component name="WindowStateProjectService">
     <state x="443" y="0" key="#Inspections" timestamp="1594264227297">
@@ -158,9 +162,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="198" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1594198983424" />
-    <state x="371" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1594263694059">
+    <state x="371" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1594286584536">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="371" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1594263694059" />
+    <state x="371" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1594286584536" />
   </component>
 </project>
