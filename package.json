@@ -1,5 +1,5 @@
 {
-  "name": "React_Wheel",
+  "name": "reactwheel",
   "version": "1.0.0",
   "description": "",
   "main": "dist/lib/index",
@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "svg-sprite-loader": "^5.0.0"
   }
 }
