@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0f819f-91e7-4b74-b6c7-da01f8a41058" name="Default Changelist" comment="onClick 类型完善">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4a0f819f-91e7-4b74-b6c7-da01f8a41058" name="Default Changelist" comment="支持传 className">
       <change beforePath="$PROJECT_DIR$/lib/icon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icon.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +78,7 @@
       <workItem from="1593486006745" duration="231000" />
       <workItem from="1593486275795" duration="365000" />
       <workItem from="1593486722833" duration="8000" />
-      <workItem from="1594197369113" duration="21051000" />
+      <workItem from="1594197369113" duration="21442000" />
     </task>
     <task id="LOCAL-00001" summary="创建 Icon 组件">
       <created>1594202223495</created>
@@ -124,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594288668849</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="支持传 className">
+      <created>1594291539150</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1594291539150</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +172,8 @@
     <MESSAGE value="添加 CSS" />
     <MESSAGE value="添加 onClick 事件" />
     <MESSAGE value="onClick 类型完善" />
-    <option name="LAST_COMMIT_MESSAGE" value="onClick 类型完善" />
+    <MESSAGE value="支持传 className" />
+    <option name="LAST_COMMIT_MESSAGE" value="支持传 className" />
   </component>
   <component name="WindowStateProjectService">
     <state x="443" y="0" key="#Inspections" timestamp="1594264227297">
@@ -178,9 +184,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="198" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1594198983424" />
-    <state x="371" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1594288641540">
+    <state x="371" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1594291497404">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="371" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1594288641540" />
+    <state x="371" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1594291497404" />
   </component>
 </project>
