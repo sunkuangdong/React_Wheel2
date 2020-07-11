@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import Icon from './icon'
+import Icon from './icon/icon'
 
 
 const fn: React.MouseEventHandler = (e) => {
@@ -10,9 +10,6 @@ const fn: React.MouseEventHandler = (e) => {
 ReactDom.render(
   <div>
     <Icon name='baidu'
-          className='null'
           onClick={fn}
-          onMouseEnter={() => {console.log('enter')}}
-          onMouseLeave={() => {console.log('level')}}
     />
   </div>, document.getElementById('root'))
