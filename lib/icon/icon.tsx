@@ -9,6 +9,7 @@ interface IconProps extends React.SVGAttributes<SVGElement> {
   // onClick: React.MouseEventHandler<SVGElement>
 }
 
+
 const Icon: React.FunctionComponent<IconProps> = (
   {className, name, ...restProps}
 ) => {
