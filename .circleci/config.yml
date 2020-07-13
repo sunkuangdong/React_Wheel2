@@ -1,21 +1,23 @@
 #https://github.com/revolunet/create-react-app-circleci/blob/master/.circleci/config.yml
 defaults: &defaults
   docker:
-    - image: circleci/node:8
+    - image: circleci/node:8 # 我们使用node第8版本来进行测试
 
-version: 2
+version: 2 # 我是用的是第几版本的circle ci
 jobs:
+  # 准备阶段
   prepare:
+    #  迁出代码
     <<: *defaults
     steps:
       - checkout
       - restore_cache:
           keys:
-            - v2-dependencies-{{ checksum "package.json" }}
-      - run: yarn install
-      - save_cache:
+            - v2-dependencies-{{ checksum "package.json" }} # 根据dependencies创建一个缓存
+      - run: yarn install # 安装所有依赖
+      - save_cache: # 保存一下缓存
           paths:
-            - node_modules
+            - node_modules # 缓存的目录
           key: v2-dependencies-{{ checksum "package.json" }}
       - persist_to_workspace:
           root: .
@@ -41,9 +43,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - run: yarn ci
+      - run: yarn ci # 运行yarn ci
       - store_test_results:
-          path: test-results
+          path: test-results # 将测试的结果报错到ci上
   publish:
     <<: *defaults
     steps:
