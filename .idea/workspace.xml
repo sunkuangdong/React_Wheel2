@@ -19,7 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0f819f-91e7-4b74-b6c7-da01f8a41058" name="Default Changelist" comment="ICON 测试" />
+    <list default="true" id="4a0f819f-91e7-4b74-b6c7-da01f8a41058" name="Default Changelist" comment="ICON 测试">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/icon/importIcons.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/icon/importIcons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,14 +61,14 @@
     <property name="ts.external.directory.path" value="C:\Users\zhenlq\Desktop\vue\React_Wheel\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zhenlq\Desktop\vue\React_Wheel\icons" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\zhenlq\Desktop\vue\React_Wheel\lib\icon\__tests__" />
       <recent name="C:\Users\zhenlq\Desktop\vue\React_Wheel\lib\icon" />
       <recent name="C:\Users\zhenlq\Desktop\vue\React_Wheel\lib\__tests__" />
       <recent name="C:\Users\zhenlq\Desktop\vue\React_Wheel\lib" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\zhenlq\Desktop\vue\React_Wheel\icons" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -80,7 +85,7 @@
       <workItem from="1593486275795" duration="365000" />
       <workItem from="1593486722833" duration="8000" />
       <workItem from="1594197369113" duration="37099000" />
-      <workItem from="1594607832424" duration="10532000" />
+      <workItem from="1594607832424" duration="12503000" />
     </task>
     <task id="LOCAL-00001" summary="创建 Icon 组件">
       <created>1594202223495</created>
@@ -208,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594634816037</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="测试配置是否正确">
+      <created>1594635505509</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1594635505509</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +269,8 @@
     <MESSAGE value="ICON 测试" />
     <MESSAGE value="add ci config" />
     <MESSAGE value="add jest-junit" />
-    <option name="LAST_COMMIT_MESSAGE" value="add jest-junit" />
+    <MESSAGE value="测试配置是否正确" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试配置是否正确" />
   </component>
   <component name="WindowStateProjectService">
     <state x="443" y="0" key="#Inspections" timestamp="1594264227297">
