@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0f819f-91e7-4b74-b6c7-da01f8a41058" name="Default Changelist" comment="ICON 测试">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4a0f819f-91e7-4b74-b6c7-da01f8a41058" name="Default Changelist" comment="ICON 测试" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +80,7 @@
       <workItem from="1593486275795" duration="365000" />
       <workItem from="1593486722833" duration="8000" />
       <workItem from="1594197369113" duration="37099000" />
-      <workItem from="1594607832424" duration="17645000" />
+      <workItem from="1594607832424" duration="17853000" />
     </task>
     <task id="LOCAL-00001" summary="创建 Icon 组件">
       <created>1594202223495</created>
