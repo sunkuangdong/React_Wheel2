@@ -10,7 +10,7 @@ interface props {
   closeOnClickMask?: boolean;
 }
 
-const scopedClass = scopedClassMaker("fui-dialog");
+const scopedClass = scopedClassMaker("sun-dialog");
 const sc = scopedClass;
 
 const Dialog: React.FunctionComponent<props> = (props) => {
@@ -22,7 +22,7 @@ const Dialog: React.FunctionComponent<props> = (props) => {
       props.onClose(e)
     }
   }
-  const x = props.visible ?
+  const result = props.visible ?
     <Fragment>
       <div className={sc('mask')} onClick={onClickMask}>
       </div>
@@ -46,7 +46,7 @@ const Dialog: React.FunctionComponent<props> = (props) => {
     </Fragment>
     : null
   return (
-    ReactDOM.createPortal(x, document.body)
+    ReactDOM.createPortal(result, document.body)
   )
 }
 
@@ -74,6 +74,7 @@ const modal = (content: ReactNode, buttons?: Array<ReactElement>, afterOnClose?:
   ReactDOM.render(component, div)
   return close;
 }
+
 const alert = (content: string) => {
   const buttons = [<button onClick={() => close()}>ok</button>];
   const close = modal(content, buttons);
@@ -94,7 +95,6 @@ const confirm = (content: string, yes?: () => void, no?: () => void) => {
     <button onClick={onNo}>no</button>]
   const onClose = modal(content, buttons, no)
 };
-
 
 export {alert, confirm, modal};
 export default Dialog;
