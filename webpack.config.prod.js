@@ -1,6 +1,6 @@
 const base = require('./webpack.config')
 module.exports = Object.assign({}, base, {
-    mode: 'development',
+    mode: 'production',
     // 告诉webpack下面的库是外部的库
     externals: {
         react: {
