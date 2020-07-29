@@ -37,7 +37,7 @@ ReactDom.render((
             </li>
           </ul>
         </Aside>
-        <Content>
+        <Content className={"site-main"}>
           <Route path="/icon" component={IconExample}/>
           <Route path="/button" component={ButtonExample}/>
           <Route path="/dialog" component={DialogExample}/>
