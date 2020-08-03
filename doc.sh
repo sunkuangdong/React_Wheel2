@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 yarn doc
 git checkout gh-pages
-mv doc/* ./
+mv -f doc/* ./
 git status
 git add .
 git commit -m 'updata'
 git push
-git checkout master
+git checkout -
