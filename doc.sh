@@ -4,6 +4,6 @@ git checkout gh-pages
 mv -f doc/* ./
 git status
 git add .
-git commit -m 'updata'
+git commit -m 'up'
 git push
 git checkout -
