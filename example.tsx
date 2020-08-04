@@ -1,10 +1,11 @@
-import React from 'react';
-import ReactDom from 'react-dom';
+import * as React from 'react';
+import * as ReactDom from 'react-dom';
 import {HashRouter as Router, Route, NavLink} from 'react-router-dom';
 import IconDemo from "./lib/icon/icon.demo";
 import ButtonExample from './lib/button.example';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
+import FormExample from './lib/form/form.example';
 import {Aside, Footer, Header, Layout, Content} from './lib/layout/layout';
 import './example.scss';
 
@@ -35,6 +36,9 @@ ReactDom.render((
             <li>
               <NavLink to="/layout">Layout布局</NavLink>
             </li>
+            <li>
+              <NavLink to="/form">表单</NavLink>
+            </li>
           </ul>
         </Aside>
         <Content className={"site-main"}>
@@ -42,6 +46,7 @@ ReactDom.render((
           <Route path="/button" component={ButtonExample}/>
           <Route path="/dialog" component={DialogExample}/>
           <Route path="/layout" component={LayoutExample}/>
+          <Route path="/form" component={FormExample}/>
         </Content>
       </Layout>
       <Footer className={"site-footer"}>
