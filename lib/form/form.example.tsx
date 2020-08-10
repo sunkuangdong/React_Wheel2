@@ -2,6 +2,16 @@ import React from 'react';
 import Form, {FormValue} from './form';
 import {useState, Fragment} from 'react';
 import Validator from './validator';
+import Button from '../button/button';
+
+const usernames = ['孙', '褚'];
+const checkUerName = (username: string, success: () => void, fail: () => void) => {
+  if (usernames.indexOf(username) >= 0) {
+    success();
+  } else {
+    fail();
+  }
+};
 
 const FormExample: React.FunctionComponent = () => {
   const [formData, setFormData] = useState<FormValue>({
@@ -19,6 +29,16 @@ const FormExample: React.FunctionComponent = () => {
       {key: 'password', required: true},
       {key: 'username', minLength: 8, maxLength: 16},
       {key: 'username', pattern: /^[A-Za-z0-9]+$/},
+      {
+        key: 'username', validator: {
+          name: '',
+          validate(username: string) {
+            return new Promise<void>((resolve, reject) => {
+              checkUerName(username, resolve, reject);
+            });
+          }
+        }
+      },
     ];
     const errors = Validator(formData, rules);
     setErrors(errors);
@@ -28,8 +48,8 @@ const FormExample: React.FunctionComponent = () => {
       <Form value={formData} fields={fields}
             buttons={
               <Fragment>
-                <button type={'submit'}>提交</button>
-                <button>返回</button>
+                <Button level="important" type={'submit'}>提交</Button>
+                <Button>返回</Button>
               </Fragment>
             }
             onChange={(value) => setFormData(value)}

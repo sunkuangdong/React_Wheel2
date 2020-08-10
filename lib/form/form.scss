@@ -1,0 +1,25 @@
+.sun-form {
+  &-table {
+    border-collapse: collapse;
+  }
+
+  &-td {
+    vertical-align: top;
+    padding-bottom: 8px;
+  }
+
+  &-tr:last-child &-td {
+    padding-bottom: 0;
+  }
+
+  &-td + &-td {
+    padding-left: 10px;
+  }
+
+  &-error {
+    color: red;
+    font-size: 0.7em;
+    margin-top: 4px;
+    font-family: serif;
+  }
+}
