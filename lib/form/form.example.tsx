@@ -1,12 +1,12 @@
 import React from 'react';
 import Form, {FormValue} from './form';
 import {useState, Fragment} from 'react';
-import Validator from './validator';
+import Validator, {noError} from './validator';
 import Button from '../button/button';
 
-const usernames = ['孙', '褚'];
+const usernames = ['孙', '褚', 'user'];
 const checkUerName = (username: string, success: () => void, fail: () => void) => {
-  if (usernames.indexOf(username) >= 0) {
+  if (usernames.indexOf(username) <= 0) {
     success();
   } else {
     fail();
@@ -27,11 +27,11 @@ const FormExample: React.FunctionComponent = () => {
     const rules = [
       {key: 'username', required: true},
       {key: 'password', required: true},
-      {key: 'username', minLength: 8, maxLength: 16},
+      {key: 'username', minLength: 1, maxLength: 16},
       {key: 'username', pattern: /^[A-Za-z0-9]+$/},
       {
         key: 'username', validator: {
-          name: '',
+          name: 'unique',
           validate(username: string) {
             return new Promise<void>((resolve, reject) => {
               checkUerName(username, resolve, reject);
@@ -40,8 +40,20 @@ const FormExample: React.FunctionComponent = () => {
         }
       },
     ];
-    const errors = Validator(formData, rules);
-    setErrors(errors);
+    Validator(formData, rules, (errors) => {
+      setErrors(errors);
+      if (noError(errors)) {
+        //  没有错
+      }
+    });
+  };
+  const transformError = (message: string) => {
+    const map: any = {
+      required: 'required',
+      minLength: 'too short',
+      maxLength: 'too long'
+    };
+    return map[message];
   };
   return (
     <div>
@@ -55,6 +67,7 @@ const FormExample: React.FunctionComponent = () => {
             onChange={(value) => setFormData(value)}
             onSubmit={onSubmit}
             errors={errors}
+            transformError={transformError}
       />
     </div>
   );

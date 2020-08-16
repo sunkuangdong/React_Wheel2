@@ -14,46 +14,85 @@ interface FormRule {
 
 type FormRules = Array<FormRule>
 
-interface FormErrors {
-  [key: string]: string[]
-}
-
 function isEmpty(value: any) {
   return value === undefined || value === null || value === '';
 }
 
-const Validator = (formValue: FormValue, rules: FormRules): FormErrors => {
+export function noError(errors: any) {
+  return Object.keys(errors).length === 0;
+}
+
+interface OneError {
+  message: string;
+  promise?: Promise<any>
+}
+
+const Validator = (formValue: FormValue, rules: FormRules, callback: (errors: any) => void): void => {
   let errors: any = {};
-  const addError = (key: string, message: string) => {
+  const addError = (key: string, error: OneError) => {
     if (errors[key] === undefined) {
       errors[key] = [];
     }
-    errors[key].push(message);
+    errors[key].push(error);
+    console.log(errors);
   };
   rules.map(rule => {
     const value = formValue[rule.key];
     if (rule.validator) {
-      rule.validator.validate(value);
+      const promise = rule.validator.validate(value);
+      addError(rule.key, {message: rule.validator.name, promise});
     }
     if (rule.required) {
       if (isEmpty(value)) {
-        addError(rule.key, '必填');
+        addError(rule.key, {message: 'required'});
       }
     }
     if (rule.minLength) {
       if (!isEmpty(value) && value!.length < rule.minLength) {
-        addError(rule.key, '太短');
+        addError(rule.key, {message: 'minLength'});
       }
     }
     if (rule.maxLength) {
       if (!isEmpty(value) && value!.length > rule.maxLength) {
-        addError(rule.key, '太短');
+        addError(rule.key, {message: 'maxLength'});
       }
     }
     if (rule.pattern && !(rule.pattern.test(value))) {
-      addError(rule.key, '格式不正确');
+      addError(rule.key, {message: 'pattern'});
     }
   });
-  return errors;
+  Promise.all(
+    flat(Object.values(errors))
+      .filter((item: OneError) => item.promise)
+      .map((item: OneError) => item.promise)
+  ).finally(() => {
+    callback(fromEntries(
+      Object.keys(errors)
+        .map<[string, string[]]>(key =>
+          [key, errors[key].map((item: OneError) => item.message)]
+        )
+    ));
+  });
 };
+
 export default Validator;
+
+function flat(array: Array<any>) {
+  const result = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] instanceof Array) {
+      result.push(...array[i]);
+    } else {
+      result.push(array[i]);
+    }
+  }
+  return result;
+}
+
+function fromEntries(array: Array<[string, string[]]>) {
+  const result: { [key: string]: string[] } = {};
+  for (let i = 0; i < array.length; i++) {
+    result[array[i][0]] = array[i][1];
+  }
+  return result;
+}
