@@ -1,12 +1,32 @@
-.sun-scroll{
+.sun-scroll {
   overflow: hidden;
   position: relative;
-  &-inner{
+
+  &-inner {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     overflow: auto;
+  }
+
+  &-track {
+    border: 1px solid blue;
+    width: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+  }
+
+  &-bar {
+    height: 30px;
+    border: 1px solid black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #1890ff;
   }
 }
