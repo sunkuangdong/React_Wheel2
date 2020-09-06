@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {TouchEventHandler} from 'react';
 import {HTMLAttributes, MouseEventHandler, UIEventHandler, useEffect, useRef, useState} from 'react';
 import classes from '../helpers/classes';
 import './scroll.scss';
@@ -89,10 +89,48 @@ const Scroll: React.FunctionComponent<Props> = (props) => {
     };
   }, []);
 
+  // 下拉刷新
+  const [translateY, _setTranslateY] = useState(0);
+  const setTranslateY = (y: number) => {
+    if (y < 0) {return;} else if (y > 150) {y = 150;}
+    _setTranslateY(y);
+  };
+  const lastYRef = useRef(0);
+  const moveCount = useRef(0);
+  const pulling = useRef(false);
+  const onTouchStart: TouchEventHandler = (e) => {
+    const scrollTop = contanerRef.current!.scrollTop;
+    if (scrollTop !== 0) {return;}
+    pulling.current = true;
+    lastYRef.current = e.touches[0].clientY;
+    moveCount.current = 0;
+  };
+  const onTouchMove: TouchEventHandler = (e) => {
+    moveCount.current += 1;
+    const deltaY = e.touches[0].clientY - lastYRef.current;
+    // 第一次
+    if (moveCount.current === 1 && deltaY < 0) {
+      //  不是下拉
+      pulling.current = false;
+      return;
+    }
+    // 第二次
+    if (!pulling.current) {return;}
+    setTranslateY(translateY + deltaY);
+    lastYRef.current = e.touches[0].clientY;
+  };
+  const onTouchEnd: TouchEventHandler = (e) => {
+    setTranslateY(0);
+  };
   return (
     <div {...rest} className={classes('sun-scroll')}>
-      <div className={classes('sun-scroll-inner')} style={{right: -scrollbarWidth()}}
-           onScroll={onscroll} ref={contanerRef}>
+      <div className={classes('sun-scroll-inner')}
+           style={{right: -scrollbarWidth(), transform: `translateY(${translateY}px)`}}
+           ref={contanerRef}
+           onScroll={onscroll}
+           onTouchMove={onTouchMove}
+           onTouchStart={onTouchStart}
+           onTouchEnd={onTouchEnd}>
         {children}
       </div>
       {barVisable &&
@@ -103,6 +141,11 @@ const Scroll: React.FunctionComponent<Props> = (props) => {
         />
       </div>
       }
+      <div className={classes('sun-scroll-pulling')} style={{height: translateY}}>
+        {translateY === 150 ?
+          <span className="sun-scroll-text">ok</span> :
+          <span className="sun-scroll-icon">↓</span>}
+      </div>
     </div>
   );
 };

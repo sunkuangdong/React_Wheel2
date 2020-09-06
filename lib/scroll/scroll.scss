@@ -10,6 +10,11 @@
     left: 0;
     right: 0;
     overflow: auto;
+    overscroll-behavior: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &-track {
@@ -28,5 +33,20 @@
     left: 25%;
     background-color: rgba(30, 144, 255, 0.4);
     border-radius: 15px;
+  }
+
+  &-pulling {
+    overflow: hidden;
+    color: white;
+    background-color: rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-icon{
+      font-size: 30px;
+    }
+    &-text{
+      font-size: 30px;
+    }
   }
 }
