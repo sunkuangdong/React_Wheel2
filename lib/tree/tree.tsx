@@ -27,6 +27,8 @@ const Tree: React.FunctionComponent<Props> = (props) => {
         } else {
           props.onChange(props.selected.filter(value => value !== item.value));
         }
+      } else {
+        props.onChange(item.value);
       }
     };
 
