@@ -5,6 +5,7 @@ import './scroll.scss';
 import scrollbarWidth from './scroll_whith';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
+  onPull?: () => void
 }
 
 // 查看是否是触屏设备
@@ -119,8 +120,12 @@ const Scroll: React.FunctionComponent<Props> = (props) => {
     setTranslateY(translateY + deltaY);
     lastYRef.current = e.touches[0].clientY;
   };
-  const onTouchEnd: TouchEventHandler = (e) => {
-    setTranslateY(0);
+  const onTouchEnd: TouchEventHandler = () => {
+    if (pulling.current === true) {
+      setTranslateY(0);
+      props.onPull && props.onPull();
+      pulling.current = false;
+    }
   };
   return (
     <div {...rest} className={classes('sun-scroll')}>
