@@ -1,17 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import {scopedClassMaker} from '../helpers/classes';
 import './tree.scss';
-
-export interface SourceDataItem {
-  text: string,
-  value: string,
-  children?: SourceDataItem[],
-}
-
-type Props = {
-  sourceData?: SourceDataItem[],
-  onChange: (item: SourceDataItem, bool: boolean) => void
-} & ({ selected: string[], multiple: true } | { selected: string, multiple?: false })
+import {SourceDataItem} from './statement';
+import {Props} from './statement';
+import {ChangeEventHandler} from 'react';
 
 // 准备他的className
 const scopedClass = scopedClassMaker('sun-tree');
@@ -28,17 +20,25 @@ const Tree: React.FunctionComponent<Props> = (props) => {
     const checkout = props.multiple ?
       props.selected.indexOf(item.value) >= 0 :
       props.selected === item.value;
+    const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+      if (props.multiple) {
+        if (e.target.checked) {
+          props.onChange([...props.selected, item.value]);
+        } else {
+          props.onChange(props.selected.filter(value => value !== item.value));
+        }
+      }
+    };
+
     return (
       <div key={item.value} className={sc(classes)}>
         <div className={sc('text')}>
           <input type="checkbox"
-                 onChange={(e) => props.onChange(item, e.target.checked)}
+                 onChange={onChange}
                  checked={checkout}/>
           {item.text}
         </div>
-        {item.children?.map((child) => {
-          return renderItem(child, level + 1);
-        })}
+        {item.children?.map((child) => renderItem(child, level + 1))}
       </div>
     );
   };
@@ -46,9 +46,7 @@ const Tree: React.FunctionComponent<Props> = (props) => {
   const {children, onChange, ...rest} = props;
   return (
     <div {...rest}>
-      {props.sourceData?.map(item => {
-        return renderItem(item);
-      })}
+      {props.sourceData?.map(item => renderItem(item))}
     </div>
   );
 };
