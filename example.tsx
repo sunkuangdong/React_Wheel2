@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import {HashRouter as Router, Route, NavLink} from 'react-router-dom';
-import IconDemo from "./lib/icon/icon.demo";
+import IconDemo from './lib/icon/icon.demo';
 import ButtonExample from './lib/button.example';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
@@ -9,6 +9,7 @@ import FormExample from './lib/form/form.example';
 import ScrollExample from './lib/scroll/scroll.example';
 import {Aside, Footer, Header, Layout, Content} from './lib/layout/layout';
 import './example.scss';
+import TreeExample from './lib/tree/tree.template';
 
 const logo = require('./logo.png').default;
 
@@ -22,7 +23,7 @@ ReactDom.render((
         </div>
       </Header>
       <Layout>
-        <Aside className={"site-aside"}>
+        <Aside className={'site-aside'}>
           <h2>组件</h2>
           <ul>
             <li>
@@ -43,18 +44,22 @@ ReactDom.render((
             <li>
               <NavLink to="/scroll">Scroll滚动加载</NavLink>
             </li>
+            <li>
+              <NavLink to="/tree">Tree树形控件</NavLink>
+            </li>
           </ul>
         </Aside>
-        <Content className={"site-main"}>
+        <Content className={'site-main'}>
           <Route path="/icon" component={IconDemo}/>
           <Route path="/button" component={ButtonExample}/>
           <Route path="/dialog" component={DialogExample}/>
           <Route path="/layout" component={LayoutExample}/>
           <Route path="/form" component={FormExample}/>
           <Route path="/scroll" component={ScrollExample}/>
+          <Route path="/tree" component={TreeExample}/>
         </Content>
       </Layout>
-      <Footer className={"site-footer"}>
+      <Footer className={'site-footer'}>
         &copy; 孙匡东
       </Footer>
     </Layout>
