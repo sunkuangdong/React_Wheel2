@@ -24,6 +24,8 @@ const TreeExample: React.FunctionComponent = () => {
     }
   ]);
   const [selectedValues, setSelectedValues] = useState(['1.1.1', '1.1.2']);
+  const [selectedValue] = useState('1');
+
   const onChange = (item: SourceDataItem, bool: boolean) => {
     if (bool) {
       setSelectedValues([...selectedValues, item.value]);
@@ -33,12 +35,22 @@ const TreeExample: React.FunctionComponent = () => {
   };
   return (
     <div>
-      <h1>基础模板</h1>
-      <div style={{width: 200}}>
-        <Tree sourceData={array}
-              onChange={onChange}
-              selected={selectedValues}
-              multiple={true}/>
+      <div>
+        <h1>基础模板</h1>
+        <div style={{width: 200}}>
+          <Tree sourceData={array}
+                onChange={onChange}
+                selected={selectedValues}
+                multiple={true}/>
+        </div>
+      </div>
+      <div>
+        <h1>单选树形</h1>
+        <div style={{width: 200}}>
+          <Tree sourceData={array}
+                onChange={onChange}
+                selected={selectedValue}/>
+        </div>
       </div>
     </div>
   );
