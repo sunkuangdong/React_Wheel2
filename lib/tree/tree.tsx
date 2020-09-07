@@ -1,4 +1,6 @@
 import React, {HTMLAttributes} from 'react';
+import {scopedClassMaker} from '../helpers/classes';
+import './tree.scss';
 
 interface SourceDataItem {
   text: string,
@@ -10,13 +12,20 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   sourceData?: SourceDataItem[]
 }
 
+// 准备他的className
+const scopedClass = scopedClassMaker('sun-tree');
+const sc = scopedClass;
 // 递归渲染的函数
-const x = (item: SourceDataItem) => {
+const renderItem = (item: SourceDataItem, level = 1) => {
+  const classes = {
+    ['level-' + level]: true,
+    'item': true
+  };
   return (
-    <div key={item.value}>
+    <div key={item.value} className={sc(classes)}>
       {item.text}
       {item.children?.map((child) => {
-        return x(child);
+        return renderItem(child, level + 1);
       })}
     </div>
   );
@@ -26,7 +35,7 @@ const Tree: React.FunctionComponent<Props> = (props) => {
   return (
     <div {...rest}>
       {props.sourceData?.map(item => {
-        return x(item);
+        return renderItem(item);
       })}
     </div>
   );
