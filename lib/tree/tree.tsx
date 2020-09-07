@@ -1,41 +1,53 @@
-import React, {HTMLAttributes} from 'react';
+import React from 'react';
 import {scopedClassMaker} from '../helpers/classes';
 import './tree.scss';
 
-interface SourceDataItem {
+export interface SourceDataItem {
   text: string,
   value: string,
-  children?: SourceDataItem[]
+  children?: SourceDataItem[],
 }
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-  sourceData?: SourceDataItem[]
+interface Props {
+  sourceData?: SourceDataItem[],
+  selectedValues: string[],
+  onChange: (item: SourceDataItem, bool: boolean) => void
 }
+
 
 // 准备他的className
 const scopedClass = scopedClassMaker('sun-tree');
 const sc = scopedClass;
 // 递归渲染的函数
-const renderItem = (item: SourceDataItem, level = 1) => {
+const renderItem = (
+  item: SourceDataItem,
+  selectedValues: string[],
+  onChange: (item: SourceDataItem, bool: boolean) => void,
+  level = 1) => {
   const classes = {
     ['level-' + level]: true,
     'item': true
   };
   return (
     <div key={item.value} className={sc(classes)}>
-      {item.text}
+      <div className={sc('text')}>
+        <input type="checkbox"
+               onChange={(e) => onChange(item, e.target.checked)}
+               checked={selectedValues.indexOf(item.value) >= 0}/>
+        {item.text}
+      </div>
       {item.children?.map((child) => {
-        return renderItem(child, level + 1);
+        return renderItem(child, selectedValues, onChange, level + 1);
       })}
     </div>
   );
 };
 const Tree: React.FunctionComponent<Props> = (props) => {
-  const {children, ...rest} = props;
+  const {children, selectedValues, onChange, ...rest} = props;
   return (
     <div {...rest}>
       {props.sourceData?.map(item => {
-        return renderItem(item);
+        return renderItem(item, selectedValues, onChange);
       })}
     </div>
   );
