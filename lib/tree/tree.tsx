@@ -8,11 +8,13 @@ export interface SourceDataItem {
   children?: SourceDataItem[],
 }
 
-interface Props {
+type A = { selected: string[], multiple: true }
+type B = { selected: string, multiple: false }
+
+type Props = {
   sourceData?: SourceDataItem[],
-  selectedValues: string[],
   onChange: (item: SourceDataItem, bool: boolean) => void
-}
+} & (A | B)
 
 
 // 准备他的className
@@ -43,13 +45,20 @@ const renderItem = (
   );
 };
 const Tree: React.FunctionComponent<Props> = (props) => {
-  const {children, selectedValues, onChange, ...rest} = props;
-  return (
-    <div {...rest}>
-      {props.sourceData?.map(item => {
-        return renderItem(item, selectedValues, onChange);
-      })}
-    </div>
-  );
+  const {children, onChange, ...rest} = props;
+
+  if (props.multiple) {
+    return (
+      <div {...rest}>
+        {props.sourceData?.map(item => {
+          return renderItem(item, props.selected, onChange);
+        })}
+      </div>
+    );
+  } else {
+    return (
+      <div>未完成</div>
+    );
+  }
 };
 export default Tree;
