@@ -3,7 +3,7 @@ import {scopedClassMaker} from '../helpers/classes';
 import './tree.scss';
 import {SourceDataItem} from './statement';
 import {Props} from './statement';
-import {ChangeEventHandler} from 'react';
+import {ChangeEventHandler, useState} from 'react';
 
 // 准备他的className
 const scopedClass = scopedClassMaker('sun-tree');
@@ -31,16 +31,27 @@ const Tree: React.FunctionComponent<Props> = (props) => {
         props.onChange(item.value);
       }
     };
-
+    const expand = () => {};
+    const collapse = () => {};
+    const [expanded] = useState(true);
     return (
       <div key={item.value} className={sc(classes)}>
-        <div className={sc('text')}>
+        <label className={sc('text')}>
           <input type="checkbox"
                  onChange={onChange}
                  checked={checkout}/>
           {item.text}
+          {item.children &&
+          <span>
+            {expanded ?
+              <span onClick={expand}>+</span> :
+              <span onClick={collapse}>-</span>}
+          </span>
+          }
+        </label>
+        <div className={sc('children')}>
+          {item.children?.map((child) => renderItem(child, level + 1))}
         </div>
-        {item.children?.map((child) => renderItem(child, level + 1))}
       </div>
     );
   };
