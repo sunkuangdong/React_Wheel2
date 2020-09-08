@@ -4,11 +4,9 @@ interface SourceDataItem {
   children?: SourceDataItem[],
 }
 
-type Props = {
+type TreeProps = {
     sourceData?: SourceDataItem[],
-  }
-  &
-  ({ selected: string[], multiple: true, onChange: (newSelected: string[]) => void } |
+  } & ({ selected: string[], multiple: true, onChange: (newSelected: string[]) => void } |
     { selected: string, multiple?: false, onChange: (newSelected: string) => void });
 
-export {SourceDataItem, Props};
+export {SourceDataItem, TreeProps};
