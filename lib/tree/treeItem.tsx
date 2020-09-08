@@ -30,7 +30,11 @@ const TreeItem: React.FC<Props> = (props) => {
                 TreeProps.onChange(TreeProps.selected.filter(value => value !== item.value));
             }
         } else {
-            TreeProps.onChange(item.value);
+            if (e.target.checked) {
+                TreeProps.onChange(item.value);
+            } else {
+                TreeProps.onChange("");
+            }
         }
     };
     const expand = () => {
