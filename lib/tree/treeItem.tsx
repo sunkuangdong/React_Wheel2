@@ -3,6 +3,7 @@ import {SourceDataItem, TreeProps} from "./statement";
 import {ChangeEventHandler, useState} from "react";
 import * as React from "react";
 import {scopedClassMaker} from "../helpers/classes";
+import useUpDate from "../hooks/useUpdate";
 
 interface Props {
     item: SourceDataItem
@@ -19,9 +20,7 @@ const TreeItem: React.FC<Props> = (props) => {
         ['level-' + level]: true,
         'item': true
     };
-    const checkout = TreeProps.multiple ?
-        TreeProps.selected.indexOf(item.value) >= 0 :
-        TreeProps.selected === item.value;
+    const checkout = TreeProps.multiple ? TreeProps.selected.indexOf(item.value) >= 0 : TreeProps.selected === item.value;
     const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         if (TreeProps.multiple) {
             if (e.target.checked) {
@@ -44,6 +43,12 @@ const TreeItem: React.FC<Props> = (props) => {
         setExpanded(false)
     };
     const [expanded, setExpanded] = useState(true);
+
+
+    useUpDate(expanded, () => {
+        console.log("expanded 的值变为" + expanded)
+    });
+
     return (
         <div key={item.value} className={sc(classes)}>
             <label className={sc('text')}>
