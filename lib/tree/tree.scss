@@ -28,8 +28,12 @@
     padding-left: 4em;
   }
 
-  &-collapsed {
-    height: 0;
+  &-children {
     overflow: hidden;
+    transition: height 150ms;
+
+    &-gone {
+      height: 0;
+    }
   }
 }
