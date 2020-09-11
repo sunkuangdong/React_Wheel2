@@ -1,9 +1,10 @@
 // 递归渲染的函数
 import {SourceDataItem, TreeProps} from "./statement";
-import {ChangeEventHandler, useRef, useState} from "react";
+import {ChangeEventHandler, useRef} from "react";
 import * as React from "react";
 import {scopedClassMaker} from "../helpers/classes";
 import useUpDate from "../hooks/useUpdate";
+import useToggle from "../hooks/useToggle";
 
 interface Props {
     item: SourceDataItem;
@@ -27,20 +28,6 @@ const TreeItem: React.FC<Props> = (props) => {
     };
     const checked = TreeProps.multiple ? TreeProps.selected.indexOf(item.value) >= 0 : TreeProps.selected === item.value;
 
-    // 点击任意一级，返回所有值组成的数组
-    const collectChildrenValues = (item: SourceDataItem): string[] => {
-        return flatten(item.children?.map(
-            items => [items.value, collectChildrenValues(items)]))
-    }
-    const flatten = (array?: RecursiveArray<string>): string[] => {
-        if (!array) {
-            return [];
-        }
-        return array.reduce<string[]>(
-            (result, current) =>
-                result.concat(typeof current === "string" ? current : flatten(current)), [])
-    }
-
     const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         const childrenValues = collectChildrenValues(item)
         if (TreeProps.multiple) {
@@ -60,37 +47,9 @@ const TreeItem: React.FC<Props> = (props) => {
     };
 
     // 点击加号 或 减号执行 节流
-    const plus = () => {
-        setExpanded(true)
-    }
-    const less = () => {
-        setExpanded(false)
-    }
-    const [cd, setCd] = useState(false)
-    const expand = () => {
-        if (cd) {
-            return;
-        } else {
-            plus()
-            setCd(true)
-            setTimeout(() => {
-                setCd(false)
-            }, 300)
-        }
-    };
-    const collapse = () => {
-        if (cd) {
-            return;
-        } else {
-            less()
-            setCd(true)
-            setTimeout(() => {
-                setCd(false)
-            }, 300)
-        }
-    };
-    const [expanded, setExpanded] = useState(true);
+    const {expanded, expand, collapse} = useToggle(true)
     const divRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     useUpDate(expanded, () => {
         if (!divRef.current) {
@@ -139,28 +98,12 @@ const TreeItem: React.FC<Props> = (props) => {
         const common = intersect(values, childrenValues);
         if (common.length !== 0) {
             props.onItemChange(Array.from(new Set(values.concat(item.value))))
-            if (common.length === childrenValues.length) {
-                inputRef.current!.indeterminate = false;
-            } else {
-                inputRef.current!.indeterminate = true;
-            }
+            inputRef.current!.indeterminate = common.length !== childrenValues.length;
         } else {
             props.onItemChange(values.filter(v => v !== item.value));
             inputRef.current!.indeterminate = false;
         }
     }
-    const inputRef = useRef<HTMLInputElement>(null);
-
-    function intersect<T>(array1: T[], array2: T[]): T[] {
-        const result: T[] = [];
-        for (let i = 0; i < array1.length; i++) {
-            if (array2.indexOf(array1[i]) >= 0) {
-                result.push(array1[i])
-            }
-        }
-        return result;
-    }
-
     return (
         <div key={item.value} className={sc(classes)}>
             <div className={sc('text')}>
@@ -191,3 +134,27 @@ const TreeItem: React.FC<Props> = (props) => {
     );
 };
 export default TreeItem;
+
+// 点击任意一级，返回所有值组成的数组
+const collectChildrenValues = (item: SourceDataItem): string[] => {
+    return flatten(item.children?.map(
+        items => [items.value, collectChildrenValues(items)]))
+}
+const flatten = (array?: RecursiveArray<string>): string[] => {
+    if (!array) {
+        return [];
+    }
+    return array.reduce<string[]>(
+        (result, current) =>
+            result.concat(typeof current === "string" ? current : flatten(current)), [])
+}
+
+function intersect<T>(array1: T[], array2: T[]): T[] {
+    const result: T[] = [];
+    for (let i = 0; i < array1.length; i++) {
+        if (array2.indexOf(array1[i]) >= 0) {
+            result.push(array1[i])
+        }
+    }
+    return result;
+}
