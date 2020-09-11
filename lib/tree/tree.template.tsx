@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-// import {SourceDataItem} from './statement';
 import Tree from './tree';
 
 const TreeExample: React.FunctionComponent = () => {

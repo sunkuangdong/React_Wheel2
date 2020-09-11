@@ -30,10 +30,19 @@
 
   &-children {
     overflow: hidden;
-    transition: height 500ms;
+    transition: height 200ms;
 
     &-gone {
       height: 0;
     }
+  }
+
+  &-level-distance {
+    margin-left: .5em;
+    margin-right: .5em;
+  }
+
+  &-level-input {
+    margin-left: .5em;
   }
 }
