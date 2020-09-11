@@ -8,8 +8,9 @@ import LayoutExample from './lib/layout/layout.example';
 import FormExample from './lib/form/form.example';
 import ScrollExample from './lib/scroll/scroll.example';
 import {Aside, Footer, Header, Layout, Content} from './lib/layout/layout';
-import './example.scss';
 import TreeExample from './lib/tree/tree.template';
+import CitySelectExample from "./lib/citySelect/citySelect.example";
+import './example.scss';
 
 const logo = require('./logo.png').default;
 
@@ -47,6 +48,9 @@ ReactDom.render((
             <li>
               <NavLink to="/tree">Tree树形控件</NavLink>
             </li>
+            <li>
+              <NavLink to="/citySelect">City城市组件</NavLink>
+            </li>
           </ul>
         </Aside>
         <Content className={'site-main'}>
@@ -57,6 +61,7 @@ ReactDom.render((
           <Route path="/form" component={FormExample}/>
           <Route path="/scroll" component={ScrollExample}/>
           <Route path="/tree" component={TreeExample}/>
+          <Route path="/citySelect" component={CitySelectExample}/>
         </Content>
       </Layout>
       <Footer className={'site-footer'}>
