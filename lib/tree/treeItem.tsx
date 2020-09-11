@@ -11,6 +11,10 @@ interface Props {
     TreeProps: TreeProps
 }
 
+interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> {
+}
+
+
 // 准备他的className
 const scopedClass = scopedClassMaker('sun-tree');
 const sc = scopedClass;
@@ -21,12 +25,30 @@ const TreeItem: React.FC<Props> = (props) => {
         'item': true
     };
     const checked = TreeProps.multiple ? TreeProps.selected.indexOf(item.value) >= 0 : TreeProps.selected === item.value;
+
+    // 点击任意一级，返回所有值组成的数组
+    const collectChildrenValues = (item: SourceDataItem): string[] => {
+        return flatten(item.children?.map(
+            items => [items.value, collectChildrenValues(items)]))
+    }
+    const flatten = (array?: RecursiveArray<string>): string[] => {
+        if (!array) {
+            return [];
+        }
+        return array.reduce<string[]>(
+            (result, current) =>
+                result.concat(typeof current === "string" ? current : flatten(current)), [])
+    }
+
     const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+        const childrenValues = collectChildrenValues(item)
+        console.log(childrenValues);
         if (TreeProps.multiple) {
             if (e.target.checked) {
-                TreeProps.onChange([...TreeProps.selected, item.value]);
+                TreeProps.onChange([...TreeProps.selected, item.value, ...childrenValues]);
             } else {
-                TreeProps.onChange(TreeProps.selected.filter(value => value !== item.value));
+                TreeProps.onChange(TreeProps.selected.filter(
+                    value => value !== item.value && childrenValues.indexOf(value) === -1));
             }
         } else {
             if (e.target.checked) {
@@ -53,7 +75,7 @@ const TreeItem: React.FC<Props> = (props) => {
             setCd(true)
             setTimeout(() => {
                 setCd(false)
-            }, 300)
+            }, 800)
         }
     };
     const collapse = () => {
@@ -64,7 +86,7 @@ const TreeItem: React.FC<Props> = (props) => {
             setCd(true)
             setTimeout(() => {
                 setCd(false)
-            }, 300)
+            }, 800)
         }
     };
     const [expanded, setExpanded] = useState(true);
@@ -75,6 +97,7 @@ const TreeItem: React.FC<Props> = (props) => {
             return;
         }
         if (expanded) {
+            debugger
             divRef.current.style.position = "absolute";
             divRef.current.style.opacity = "0";
             divRef.current.style.height = "auto";

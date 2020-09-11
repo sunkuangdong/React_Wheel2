@@ -3,42 +3,41 @@ import React, {useState} from 'react';
 import Tree from './tree';
 
 const TreeExample: React.FunctionComponent = () => {
-  const [array,] = useState([
-    {
-      text: '1',
-      value: '1',
-      children: [
+    const [array,] = useState([
         {
-          text: '1.1',
-          value: '1.1',
-          children: [
-            {text: '1.1.1', value: '1.1.1'},
-            {text: '1.1.2', value: '1.1.2'}
-          ]
+            text: '1',
+            value: '1',
+            children: [
+                {
+                    text: '1.1',
+                    value: '1.1',
+                    children: [
+                        {text: '1.1.1', value: '1.1.1'},
+                        {text: '1.1.2', value: '1.1.2'}
+                    ]
+                },
+                {text: '1.2', value: '1.2'}
+            ]
         },
-        {text: '1.2', value: '1.2'}
-      ]
-    },
-    {
-      text: '2',
-      value: '2'
-    }
-  ]);
-  // const [selectedValues, setSelectedValues] = useState(['1.1.1', '1.1.2']);
-  const [selectedValue, setSelectedValue] = useState('11');
+        {
+            text: '2',
+            value: '2'
+        }
+    ]);
+    const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
-  return (
-    <div>
-      <div>
-        <h1>基础模板</h1>
-        <div style={{width: 200}}>
-          <Tree sourceData={array}
-                onChange={(value) => setSelectedValue(value)}
-                selected={selectedValue}
-                multiple={false}/>
+    return (
+        <div>
+            <div>
+                <h1>基础模板</h1>
+                <div style={{width: 200}}>
+                    <Tree sourceData={array}
+                          onChange={(value) => setSelectedValues(value)}
+                          selected={selectedValues}
+                          multiple={true}/>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 export default TreeExample;
