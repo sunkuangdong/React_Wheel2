@@ -15,8 +15,8 @@ const useToggle = (initValue: boolean) => {
         if (cd) {
             return;
         } else {
-            plus()
-            setCd(true)
+            plus();
+            setCd(true);
             setTimeout(() => {
                 setCd(false)
             }, 400)
@@ -26,8 +26,8 @@ const useToggle = (initValue: boolean) => {
         if (cd) {
             return;
         } else {
-            less()
-            setCd(true)
+            less();
+            setCd(true);
             setTimeout(() => {
                 setCd(false)
             }, 400)
