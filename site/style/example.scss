@@ -10,8 +10,9 @@ $border-color: #eee;
   box-sizing: border-box;
 }
 
-*::after *::before {
-  box-sizing: border-box
+*::after,
+*::before {
+  box-sizing: border-box;
 }
 
 ul,
@@ -33,11 +34,6 @@ a {
   color: inherit;
 }
 
-ul,
-ol {
-  list-style: none;
-}
-
 body {
   font-size: 16px;
 }
@@ -48,19 +44,19 @@ pre {
   width: 600px;
 }
 
-.example {
-  padding-bottom: 20px;
-}
-
-$main-color: #409eff;
-$padding: 16px;
-
 .site-page {
-  background: white;
+  background: #fff;
   min-height: 100vh;
 }
 
+.site-main {
+  padding-top: $padding;
+  padding-left: $padding;
+}
+
 .site-header {
+  //background: $border-color;
+  //padding: 8px 0;
   width: 100%;
   height: 60px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -76,50 +72,32 @@ $padding: 16px;
 
     >span {
       color: #00ADB5;
-      font-size: 20px;
+      font-size: 32px;
     }
   }
 }
 
 .site-aside {
-  border-right: 1px solid #eeeeee;
-  margin-right: 16px;
-
-  >h2 {
-    padding: $padding;
-    font-size: 14px;
-    color: mediumslateblue;
-    font-weight: 550;
+  h2 {
+    padding: 8px;
+    font-size: 18px;
   }
 
-  >ul {
-    padding: 0 $padding;
+  ul {
     min-width: 12em;
 
     >li {
-      padding: 20px 10px;
-      font-family: fangsong;
-
       a {
-        text-decoration: none;
         color: #333;
+        padding: 8px $padding;
+        display: block;
 
         &:hover {
-          color: $main-color;
-        }
-
-        &.active {
-          color: $main-color;
+          color: $text-color;
         }
       }
     }
   }
-}
-
-.site-main {
-  padding-top: $padding;
-  padding-left: $padding;
-  padding-right: $padding;
 }
 
 .site-footer {
@@ -128,6 +106,10 @@ $padding: 16px;
   color: #666;
   padding: $padding 0;
   border-top: 1px solid $border-color;
+}
+
+.example {
+  padding: $padding 0;
 }
 
 html,

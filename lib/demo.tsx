@@ -3,7 +3,7 @@ import Highlight, {defaultProps} from "prism-react-renderer";
 import {useState} from "react";
 
 interface Props {
-  code: string
+  code: string;
 }
 
 const Demo: React.FunctionComponent<Props> = (props) => {

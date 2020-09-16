@@ -1,7 +1,7 @@
-import {useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 
 const useUpDate = (dep: boolean, fn: () => void) => {
-    const isFirst = useRef(true);
+    const isFirst = useRef(false);
     useEffect(() => {
         if (isFirst.current) {
             isFirst.current = false
