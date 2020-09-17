@@ -30,6 +30,7 @@ const Demo: React.FunctionComponent<Props> = (props) => {
                 <h1>{props.title}</h1>
                 <p className="text">点击以开始即时操作。</p>
             </section>
+            {/* 代码展示区 */}
             <section>
                 <h2>代码示例</h2>
                 <div className="example">
@@ -41,6 +42,34 @@ const Demo: React.FunctionComponent<Props> = (props) => {
                     </CodeBox>
                 </div>
             </section>
+            {/* 参数文档 */}
+            <section>
+                <h2>API</h2>
+            </section>
+            <table className="api-table">
+                <thead>
+                    <tr>
+                        <th>参数</th>
+                        <th className="des">说明</th>
+                        <th className="type">类型</th>
+                        <th>默认值</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>icon</td>
+                        <td className="des">内嵌 Icon 图标的 name 属性</td>
+                        <td className="type">string</td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td>position</td>
+                        <td className="des">内嵌 Icon 图标的位置</td>
+                        <td className="type">'left' | 'right'</td>
+                        <td>'left'</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     );
 };

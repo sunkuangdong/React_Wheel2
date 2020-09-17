@@ -1,4 +1,6 @@
-pre, pre div, pre span {
+pre,
+pre div,
+pre span {
   line-height: 1.5;
   direction: ltr;
   text-align: left;
@@ -11,6 +13,57 @@ pre, pre div, pre span {
   -ms-hyphens: none;
   hyphens: none;
   background: 0 0;
-  font-family: Lucida Console,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+  font-family: Lucida Console, Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
   white-space: pre;
+}
+
+/* API 表格、Method 表格 */
+.api-table,
+.method-table {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+
+.api-table th,
+.api-table td,
+.method-table th,
+.method-table td {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.65);
+  min-width: 120px;
+  max-width: 250px;
+  text-align: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.api-table th.des,
+.api-table td.des,
+.method-table th.des,
+.method-table td.des,
+.api-table th.type,
+.api-table td.type,
+.method-table th.type,
+.method-table td.type {
+  text-align: start;
+  min-width: 100px;
+  max-width: 300px;
+}
+
+.api-table td.type,
+.api-table td.params,
+.method-table td.type,
+.method-table td.params {
+  color: #c41d7f;
+}
+
+.api-table th,
+.method-table th {
+  background-color: rgba(0, 0, 0, 0.04);
+  font-weight: 500;
 }
