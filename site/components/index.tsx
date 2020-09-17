@@ -1,3 +1,3 @@
 
 export {default as CodeBox} from '../components/codebox/codebox';
-export {default as Demo} from './demo/IconDocument';
+export {default as Demo} from './demo/demo';

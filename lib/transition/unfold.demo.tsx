@@ -1,4 +1,4 @@
-import Demo from '../../site/components/demo/IconDocument';
+import Demo from '../../site/components/demo/demo';
 import React from 'react';
 import UnFoldExample from './unfold.example'
 

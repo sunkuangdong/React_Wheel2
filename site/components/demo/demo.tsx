@@ -3,6 +3,7 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import './demo.scss';
 import theme from 'prism-react-renderer/themes/vsDark';
 import { CodeBox } from '../index'
+import IocnDocument from "../../configuration/IconDocument"
 
 type Props = {
     code: string;
@@ -42,34 +43,7 @@ const Demo: React.FunctionComponent<Props> = (props) => {
                     </CodeBox>
                 </div>
             </section>
-            {/* 参数文档 */}
-            <section>
-                <h2>API</h2>
-            </section>
-            <table className="api-table">
-                <thead>
-                    <tr>
-                        <th>参数</th>
-                        <th className="des">说明</th>
-                        <th className="type">类型</th>
-                        <th>默认值</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>icon</td>
-                        <td className="des">内嵌 Icon 图标的 name 属性</td>
-                        <td className="type">string</td>
-                        <td>——</td>
-                    </tr>
-                    <tr>
-                        <td>position</td>
-                        <td className="des">内嵌 Icon 图标的位置</td>
-                        <td className="type">'left' | 'right'</td>
-                        <td>'left'</td>
-                    </tr>
-                </tbody>
-            </table>
+            {props.title.indexOf("Icon") >= 0 ? <IocnDocument /> : null}
         </div>
     );
 };
