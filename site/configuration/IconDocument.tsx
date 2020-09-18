@@ -21,12 +21,6 @@ const IocnDocument = () => {
                         <td className="type">string</td>
                         <td>——</td>
                     </tr>
-                    <tr>
-                        <td>position</td>
-                        <td className="des">内嵌 Icon 图标的位置</td>
-                        <td className="type">'left' | 'right'</td>
-                        <td>'left'</td>
-                    </tr>
                 </tbody>
             </table>
         </>
