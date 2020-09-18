@@ -3,11 +3,11 @@ import Icon from "./icon";
 
 const IconExample: React.FunctionComponent = () => {
   return (
-    <div>
-      <Icon name="baidu"/>
-      <Icon name="al"/>
-      <Icon name="wechat"/>
-    </div>
+    <>
+      <Icon name="baidu" />
+      <Icon name="al" />
+      <Icon name="wechat" />
+    </>
   );
 }
 

@@ -4,6 +4,7 @@ import './demo.scss';
 import theme from 'prism-react-renderer/themes/vsDark';
 import { CodeBox } from '../index'
 import IocnDocument from "../../configuration/IconDocument"
+import ButttonDocument from "../../configuration/ButttonDocument"
 
 type Props = {
     code: string;
@@ -42,8 +43,9 @@ const Demo: React.FunctionComponent<Props> = (props) => {
                     >{code}
                     </CodeBox>
                 </div>
+                {props.title.indexOf("Icon") >= 0 ? <IocnDocument /> : null}
+                {props.title.indexOf("Button") >= 0 ? <ButttonDocument /> : null}
             </section>
-            {props.title.indexOf("Icon") >= 0 ? <IocnDocument /> : null}
         </div>
     );
 };

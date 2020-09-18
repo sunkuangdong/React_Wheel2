@@ -4,6 +4,7 @@
   padding: 0 16px;
   line-height: 22px;
   transition: all 250ms;
+  margin-left: 10px;
 
   &-normal {
     color: #333;
@@ -12,17 +13,11 @@
     background: white;
     cursor: pointer;
 
-    &:hover {
-      border: 1px solid $main-color;
-      background: #409eff;
-      color: white;
-      box-shadow: 0 0 0 1px fade-out($main-color, 0.5);
-    }
-
+    &:hover,
     &:focus {
       border: 1px solid $main-color;
-      background: #409eff;
-      color: white;
+      background: rgb(236, 245, 255);
+      color: $main-color;
       box-shadow: 0 0 0 1px fade-out($main-color, 0.5);
     }
   }
@@ -33,9 +28,40 @@
     border-radius: 4px;
     background: $main-color;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background: lighten($main-color, 10%);
       background: lighten($main-color, 10%);
     }
+  }
+
+  &-warning {
+    color: white;
+    border: 1px solid $warning-color;
+    border-radius: 4px;
+    background: $warning-color;
+
+    &:hover,
+    &:focus {
+      background: lighten($warning-color, 10%);
+      background: lighten($warning-color, 10%);
+    }
+  }
+
+  &-delete {
+    color: white;
+    border: 1px solid $delete-color;
+    border-radius: 4px;
+    background: $delete-color;
+
+    &:hover,
+    &:focus {
+      background: lighten($delete-color, 10%);
+      background: lighten($delete-color, 10%);
+    }
+  }
+
+  >.sun-icon {
+    margin-right: 2px;
   }
 }

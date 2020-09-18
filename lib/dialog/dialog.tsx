@@ -1,7 +1,7 @@
-import React, {Fragment, ReactElement, ReactNode} from "react";
+import React, { Fragment, ReactElement, ReactNode } from "react";
 import ReactDOM from 'react-dom';
-import {Icon} from "../index";
-import {scopedClassMaker} from '../helpers/classes';
+import { Icon } from "../index";
+import { scopedClassMaker } from '../helpers/classes';
 
 interface props {
   visible: boolean;
@@ -28,7 +28,7 @@ const Dialog: React.FunctionComponent<props> = (props) => {
       </div>
       <div className={sc('')}>
         <div className={sc('close')} onClick={onClickClose}>
-          <Icon name="close"/>
+          <Icon name="close" />
         </div>
         <header className={sc('header')}>
           提示
@@ -37,11 +37,11 @@ const Dialog: React.FunctionComponent<props> = (props) => {
           {props.children}
         </main>
         {props.buttons && props.buttons.length > 0 &&
-        <footer className={sc('footer')}>
-          {props.buttons && props.buttons.map((button, index) =>
-            React.cloneElement(button, {key: index})
-          )}
-        </footer>}
+          <footer className={sc('footer')}>
+            {props.buttons && props.buttons.map((button, index) =>
+              React.cloneElement(button, { key: index })
+            )}
+          </footer>}
       </div>
     </Fragment>
     : null
@@ -55,18 +55,18 @@ Dialog.defaultProps = {
 };
 const modal = (content: ReactNode, buttons?: Array<ReactElement>, afterOnClose?: () => void) => {
   const close = () => {
-    ReactDOM.render(React.cloneElement(component, {visible: false}), div)
+    ReactDOM.render(React.cloneElement(component, { visible: false }), div)
     ReactDOM.unmountComponentAtNode(div)
     div.remove()
 
   }
   const component = (
     <Dialog visible={true}
-            buttons={buttons}
-            onClose={() => {
-              close();
-              afterOnClose && afterOnClose();
-            }}>
+      buttons={buttons}
+      onClose={() => {
+        close();
+        afterOnClose && afterOnClose();
+      }}>
       {content}
     </Dialog>)
   const div = document.createElement('div')
@@ -96,5 +96,5 @@ const confirm = (content: string, yes?: () => void, no?: () => void) => {
   const onClose = modal(content, buttons, no)
 };
 
-export {alert, confirm, modal};
+export { alert, confirm, modal };
 export default Dialog;

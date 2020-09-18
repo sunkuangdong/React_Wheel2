@@ -16,7 +16,7 @@ const IocnDocument = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>icon</td>
+                        <td>name</td>
                         <td className="des">内嵌 Icon 图标的 name 属性</td>
                         <td className="type">string</td>
                         <td>——</td>
