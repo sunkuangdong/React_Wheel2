@@ -28,7 +28,7 @@ const ButtonDocument = () => {
                         <td className="des">内嵌 Icon 图标的 name 属性</td>
                         <td className="type">string</td>
                         <td className="type">——</td>
-                        <td>——</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>className</td>
