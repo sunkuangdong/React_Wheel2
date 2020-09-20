@@ -3,7 +3,7 @@ import * as ReactDom from 'react-dom';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import IconDemo from './lib/icon/icon.demo';
 import ButtonDemo from './lib/button/button.demo';
-import DialogExample from './lib/dialog/dialog.example';
+import DialogDemo from './lib/dialog/dialog.demo';
 import LayoutExample from './lib/layout/layout.example';
 import FormExample from './lib/form/form.example';
 import ScrollExample from './lib/scroll/scroll.example';
@@ -56,7 +56,7 @@ ReactDom.render((
         <Content className={'site-main'}>
           <Route path="/icon" component={IconDemo} />
           <Route path="/button" component={ButtonDemo} />
-          <Route path="/dialog" component={DialogExample} />
+          <Route path="/dialog" component={DialogDemo} />
           <Route path="/layout" component={LayoutExample} />
           <Route path="/form" component={FormExample} />
           <Route path="/scroll" component={ScrollExample} />

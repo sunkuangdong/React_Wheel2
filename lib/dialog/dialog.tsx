@@ -2,6 +2,7 @@ import React, { Fragment, ReactElement, ReactNode } from "react";
 import ReactDOM from 'react-dom';
 import { Icon } from "../index";
 import { scopedClassMaker } from '../helpers/classes';
+import Button from '../button/button';
 
 interface props {
   visible: boolean;
@@ -76,7 +77,7 @@ const modal = (content: ReactNode, buttons?: Array<ReactElement>, afterOnClose?:
 }
 
 const alert = (content: string) => {
-  const buttons = [<button onClick={() => close()}>ok</button>];
+  const buttons = [<Button level="warning" onClick={() => close()}>ok</Button>];
   const close = modal(content, buttons);
 
 }
@@ -91,8 +92,8 @@ const confirm = (content: string, yes?: () => void, no?: () => void) => {
     no && no()
   }
   const buttons = [
-    <button onClick={onYes}>yes</button>,
-    <button onClick={onNo}>no</button>]
+    <Button level="important" onClick={onYes}>yes</Button>,
+    <Button onClick={onNo}>no</Button>]
   const onClose = modal(content, buttons, no)
 };
 
