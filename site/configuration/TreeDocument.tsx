@@ -17,11 +17,32 @@ const FormDocument = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>level</td>
-                        <td className="des">不同样式风格的按钮</td>
-                        <td className="type">string</td>
-                        <td className="type">important | warning | normal | delete</td>
-                        <td>normal</td>
+                        <td>sourceData</td>
+                        <td className="des">展示数据</td>
+                        <td className="type">array</td>
+                        <td className="type">——</td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td>onChange</td>
+                        <td className="des">状态发生变化时的回调</td>
+                        <td className="type">——</td>
+                        <td className="type">——</td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td>selected</td>
+                        <td className="des">默认选中</td>
+                        <td className="type">array | string</td>
+                        <td className="type">——</td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td>multiple</td>
+                        <td className="des">多选和单选切换，true为多选(必传字段)</td>
+                        <td className="type">boolean</td>
+                        <td className="type">——</td>
+                        <td>——</td>
                     </tr>
                 </tbody>
             </table>

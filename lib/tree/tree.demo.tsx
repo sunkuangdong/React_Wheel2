@@ -10,12 +10,12 @@ const x = require('!!raw-loader!./tree.template');
 const TreeDemo = () => {
     return (
         <>
-            <Header title="Scroll 滚动加载" />
+            <Header title="Tree 树形组件" />
             <Demo
                 code={x.default}
                 title="基本用法"
-                introduction="Scroll 类型"
-                content='Scroll 类型：Scroll 基本用法，自定义好看的滚动条。'
+                introduction="Tree 类型"
+                content='Tree 类型：Tree 基本用法。'
             >
                 <TreeExample />
             </Demo >
