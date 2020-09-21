@@ -5,9 +5,9 @@ import IconDemo from './lib/icon/icon.demo';
 import ButtonDemo from './lib/button/button.demo';
 import DialogDemo from './lib/dialog/dialog.demo';
 import LayoutDemo from './lib/layout/layout.demo';
-import FormDemo from './lib/form/form.demo';
-import ScrollExample from './lib/scroll/scroll.example';
 import { Aside, Footer, Header, Layout, Content } from './lib/layout/layout';
+import FormDemo from './lib/form/form.demo';
+import ScrollDemo from './lib/scroll/scroll.demo';
 import TreeExample from './lib/tree/tree.template';
 import CitySelectExample from "./lib/citySelect/citySelect.example";
 import './example.scss';
@@ -59,7 +59,7 @@ ReactDom.render((
           <Route path="/dialog" component={DialogDemo} />
           <Route path="/layout" component={LayoutDemo} />
           <Route path="/form" component={FormDemo} />
-          <Route path="/scroll" component={ScrollExample} />
+          <Route path="/scroll" component={ScrollDemo} />
           <Route path="/tree" component={TreeExample} />
           <Route path="/citySelect" component={CitySelectExample} />
         </Content>
