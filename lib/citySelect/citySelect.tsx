@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ReactDom from "react-dom"
 import classes from "../helpers/classes";
 import "./citySelect.scss"
@@ -20,8 +20,8 @@ const CitySelelctContext = React.createContext<Context>(
         }
     });
 const CitySelect: React.FC<Props> = (props) => {
-    const {children} = props
-    const [dialogFlag, setDialogFlag] = useState(true);
+    const { children } = props
+    const [dialogFlag, setDialogFlag] = useState(false);
     const map: Context["hash"] = {};
     props.dataSource.map((city) => {
         const py = pinin.convertToPinyin(city);
@@ -34,14 +34,14 @@ const CitySelect: React.FC<Props> = (props) => {
         setDialogFlag(true);
     }
     return (
-        <CitySelelctContext.Provider value={{hash: map, onChange: props.onChange}}>
+        <CitySelelctContext.Provider value={{ hash: map, onChange: props.onChange }}>
             <div onClick={onClick}>{children}</div>
-            {dialogFlag && <Dialog onClose={() => setDialogFlag(false)}/>}
+            {dialogFlag && <Dialog onClose={() => setDialogFlag(false)} />}
         </CitySelelctContext.Provider>
     )
 }
 const Dialog: React.FC<{ onClose: () => void }> = (props) => {
-    const {hash, onChange} = useContext(CitySelelctContext);
+    const { hash, onChange } = useContext(CitySelelctContext);
     const cityList = Object.entries(hash).sort((a, b) => a[0].charCodeAt(0) - b[0].charCodeAt(0));
     const indexList = Object.keys(hash).sort();
     // 点击城市事件
@@ -55,7 +55,7 @@ const Dialog: React.FC<{ onClose: () => void }> = (props) => {
                 <span className="icon" onClick={props.onClose}>&lt;</span>
                 <span>选择城市</span>
             </header>
-            <CurrentLocation/>
+            <CurrentLocation />
             <h2>全部都市</h2>
             <ol className="sun-citySelect-index">
                 {indexList.map(item => <li key={item}>{item}</li>)}
@@ -67,8 +67,8 @@ const Dialog: React.FC<{ onClose: () => void }> = (props) => {
                         <h4>{letter}</h4>
                         {list.map(cityName =>
                             <div onClick={() => onClick(cityName)}
-                                 className={classes("sun-citySelect-cityName")}
-                                 key={cityName}>{cityName}</div>)}
+                                className={classes("sun-citySelect-cityName")}
+                                key={cityName}>{cityName}</div>)}
                     </div>
                 );
             })}

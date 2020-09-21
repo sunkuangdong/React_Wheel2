@@ -9,7 +9,7 @@ import { Aside, Footer, Header, Layout, Content } from './lib/layout/layout';
 import FormDemo from './lib/form/form.demo';
 import ScrollDemo from './lib/scroll/scroll.demo';
 import TreeDemo from './lib/tree/tree.demo';
-import CitySelectExample from "./lib/citySelect/citySelect.example";
+import CitySelectDemo from "./lib/citySelect/city.demo";
 import './example.scss';
 
 const logo = require('./logo.png').default;
@@ -61,7 +61,7 @@ ReactDom.render((
           <Route path="/form" component={FormDemo} />
           <Route path="/scroll" component={ScrollDemo} />
           <Route path="/tree" component={TreeDemo} />
-          <Route path="/citySelect" component={CitySelectExample} />
+          <Route path="/citySelect" component={CitySelectDemo} />
         </Content>
       </Layout>
       <Footer className={'site-footer'}>
