@@ -17,11 +17,18 @@ const FormDocument = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>level</td>
-                        <td className="des">不同样式风格的按钮</td>
-                        <td className="type">string</td>
-                        <td className="type">important | warning | normal | delete</td>
-                        <td>normal</td>
+                        <td>style</td>
+                        <td className="des">原生属性</td>
+                        <td className="type">Object</td>
+                        <td className="type">——</td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td>onPull</td>
+                        <td className="des">参数为函数</td>
+                        <td className="type">Function</td>
+                        <td className="type">——</td>
+                        <td>——</td>
                     </tr>
                 </tbody>
             </table>

@@ -24,7 +24,7 @@ const ScrollDemo = () => {
                 code={x.default}
                 title="移动端 - 下拉刷新"
                 introduction="Scroll 类型"
-                content='Scroll 类型：Scroll 基本用法，。'
+                content='Scroll 类型：Scroll 下拉刷新。'
             >
                 <ScrollExample2 />
             </Demo >
