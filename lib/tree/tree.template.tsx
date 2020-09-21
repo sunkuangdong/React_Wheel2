@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Tree from './tree';
 
 const TreeExample: React.FunctionComponent = () => {
@@ -11,11 +11,11 @@ const TreeExample: React.FunctionComponent = () => {
                     text: '1.1',
                     value: '1.1',
                     children: [
-                        {text: '1.1.1', value: '1.1.1'},
-                        {text: '1.1.2', value: '1.1.2'}
+                        { text: '1.1.1', value: '1.1.1' },
+                        { text: '1.1.2', value: '1.1.2' }
                     ]
                 },
-                {text: '1.2', value: '1.2'}
+                { text: '1.2', value: '1.2' }
             ]
         },
         {
@@ -28,12 +28,11 @@ const TreeExample: React.FunctionComponent = () => {
     return (
         <div>
             <div>
-                <h1>基础模板</h1>
-                <div style={{width: 200}}>
+                <div style={{ width: "100%" }}>
                     <Tree sourceData={array}
-                          onChange={(value) => setSelectedValues(value)}
-                          selected={selectedValues}
-                          multiple={true}/>
+                        onChange={(value) => setSelectedValues(value)}
+                        selected={selectedValues}
+                        multiple={true} />
                 </div>
             </div>
         </div>

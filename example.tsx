@@ -8,7 +8,7 @@ import LayoutDemo from './lib/layout/layout.demo';
 import { Aside, Footer, Header, Layout, Content } from './lib/layout/layout';
 import FormDemo from './lib/form/form.demo';
 import ScrollDemo from './lib/scroll/scroll.demo';
-import TreeExample from './lib/tree/tree.template';
+import TreeDemo from './lib/tree/tree.demo';
 import CitySelectExample from "./lib/citySelect/citySelect.example";
 import './example.scss';
 
@@ -60,7 +60,7 @@ ReactDom.render((
           <Route path="/layout" component={LayoutDemo} />
           <Route path="/form" component={FormDemo} />
           <Route path="/scroll" component={ScrollDemo} />
-          <Route path="/tree" component={TreeExample} />
+          <Route path="/tree" component={TreeDemo} />
           <Route path="/citySelect" component={CitySelectExample} />
         </Content>
       </Layout>
