@@ -15,7 +15,7 @@ const FormDemo = () => {
                 code={x.default}
                 title="基本用法"
                 introduction="Form 类型"
-                content='Form 类型：Form 基本用法，。'
+                content='Form 类型：Form 基本用法。'
             >
                 <FormExample />
             </Demo >

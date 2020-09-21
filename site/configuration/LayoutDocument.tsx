@@ -17,11 +17,18 @@ const LayoutDocument = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>visible</td>
-                        <td className="des">是否显示 Dialog</td>
-                        <td className="type">Boolean</td>
-                        <td className="type">true | false</td>
-                        <td>false</td>
+                        <td>style</td>
+                        <td className="des">原生 style</td>
+                        <td className="type">Object</td>
+                        <td className="type">——</td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td>className</td>
+                        <td className="des">添加 className</td>
+                        <td className="type">string</td>
+                        <td className="type">——</td>
+                        <td>——</td>
                     </tr>
                 </tbody>
             </table>

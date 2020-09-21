@@ -17,11 +17,39 @@ const FormDocument = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>level</td>
-                        <td className="des">不同样式风格的按钮</td>
-                        <td className="type">string</td>
-                        <td className="type">important | warning | normal | delete</td>
-                        <td>normal</td>
+                        <td>value</td>
+                        <td className="des">表单数据对象</td>
+                        <td className="type">object</td>
+                        <td className="type">——</td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td>fields</td>
+                        <td className="des">表单验证规则</td>
+                        <td className="type">object</td>
+                        <td className="type">——</td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td>validator</td>
+                        <td className="des">自定义校验</td>
+                        <td className="type">Function</td>
+                        <td className="type">——</td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td>errors</td>
+                        <td className="des">自定义表单校验信息的显示方式</td>
+                        <td className="type">object</td>
+                        <td className="type">——</td>
+                        <td>——</td>
+                    </tr>
+                    <tr>
+                        <td>transformError</td>
+                        <td className="des">自定义表单校验信息的错误提示文字</td>
+                        <td className="type">Function</td>
+                        <td className="type">——</td>
+                        <td>——</td>
                     </tr>
                 </tbody>
             </table>
