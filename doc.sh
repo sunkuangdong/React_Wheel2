@@ -6,8 +6,7 @@ git push
 yarn doc
 git checkout gh-pages
 mv -f doc/* ./
-git status
 git add .
-git commit -m 'updata'
-git push
+git commit -m 'doc'
+git push --set-upstream origin gh-pages
 git checkout master
