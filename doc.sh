@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 git add .
-git commit -m 'doc前的提交'
+git commit -m '优化样式'
 git push
 
 yarn doc
