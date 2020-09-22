@@ -53,10 +53,10 @@ const Dialog: React.FC<{ onClose: () => void }> = (props) => {
         (<div className={classes("sun-citySelect-dialog")}>
             <header>
                 <span className="icon" onClick={props.onClose}>&lt;</span>
-                <span>选择城市</span>
+                <span className="sun-citySelect-text">选择城市</span>
             </header>
             <CurrentLocation />
-            <h2>全部都市</h2>
+            <h2 className="sun-citySelect-allCity">全部都市</h2>
             <ol className="sun-citySelect-index">
                 {indexList.map(item => <li key={item}>{item}</li>)}
             </ol>
