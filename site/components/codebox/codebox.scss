@@ -49,6 +49,7 @@
 .code-example-box .code-description.code-visible {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+
 }
 
 .code-example-box .code-description .icon-wrapper {
@@ -63,6 +64,7 @@
 }
 
 .code-example-box .code-example {
+  display: flex;
   background-color: rgb(40, 40, 40);
   color: rgb(212, 212, 212);
   font-size: 16px;

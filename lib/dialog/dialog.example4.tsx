@@ -1,15 +1,15 @@
 import React from "react";
-import{ modal } from "./dialog";
+import { modal } from "./dialog";
 import "./dialog.scss"
 import Button from '../button/button';
 
 export default function () {
   const openModal = () => {
     const close = modal(
-      <h1>
+      <div>
         <span>你好</span>
         <Button onClick={() => close()}>close</Button>
-      </h1>
+      </div>
     );
   }
   return (

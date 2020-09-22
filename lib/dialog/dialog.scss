@@ -20,9 +20,9 @@
   }
 
   &-header {
-    font-size: 22px;
+    font-size: 18px;
     padding: 8px 16px;
-    border-bottom: 1px solid rgb(166, 194, 255);
+    border-bottom: 1px solid #f0f0f0;
   }
 
   &-main {
@@ -32,7 +32,7 @@
 
   &-footer {
     padding: 8px 16px;
-    border-top: 1px solid rgb(166, 194, 255);
+    border-top: 1px solid #f0f0f0;
     display: flex;
     justify-content: flex-end;
   }
@@ -41,7 +41,7 @@
     position: absolute;
     bottom: 100%;
     left: 100%;
-    background: rgb(166, 194, 255);
+    background: white;
     width: 1.2em;
     height: 1.2em;
     border-radius: 50%;
@@ -53,7 +53,8 @@
     >.sun-icon {
       width: 1em;
       height: 1em;
-      fill: aliceblue;
+      fill: #d8d8d8;
+      cursor: pointer;
     }
   }
 }

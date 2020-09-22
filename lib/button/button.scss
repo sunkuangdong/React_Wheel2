@@ -5,13 +5,17 @@
   line-height: 22px;
   transition: all 250ms;
   margin-left: 10px;
+  cursor: pointer;
+
+  // &+& {
+  //   margin-left: 10px;
+  // }
 
   &-normal {
     color: #333;
     border: 1px solid lighten(#333, 50%);
     border-radius: 4px;
     background: white;
-    cursor: pointer;
 
     &:hover,
     &:focus {
