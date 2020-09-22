@@ -8,5 +8,6 @@ git checkout gh-pages
 mv -f doc/* ./
 git add .
 git commit -m 'doc'
-git push --set-upstream origin gh-pages
+git branch --set-upstream-to origin/gh-pages
+git push
 git checkout master
