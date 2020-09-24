@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {CSSProperties, HTMLAttributes, TransitionEventHandler, useEffect, useRef} from 'react'
+import { CSSProperties, HTMLAttributes, TransitionEventHandler, useEffect, useRef } from 'react'
 import useUpdate from '../hooks/useUpdate'
 
 type UnfoldProps = {
@@ -26,7 +26,7 @@ type PrevSize = {
 type NodeDisplay = string
 
 const Unfold: React.FC<UnfoldProps> = (props) => {
-  const {visible, transitionTime, vertical, ...rest} = props
+  const { visible, transitionTime, vertical, ...rest } = props
   const transitionEffect = useRef<TransitionEffect>({
     vertical: '',
     horizontal: ''
@@ -128,6 +128,9 @@ const Unfold: React.FC<UnfoldProps> = (props) => {
       ${transitionTime}ms padding-left cubic-bezier(.645, .045, .355, 1), 
       ${transitionTime}ms padding-right cubic-bezier(.645, .045, .355, 1)`
     }
+    // if (!visible) {
+    //   containerRef.current!.style.display = 'none'
+    // }
   }, [])
   const setNodeStyle = (cssProp: object) => {
     Object.keys(cssProp).map((key) => {
@@ -189,7 +192,6 @@ const Unfold: React.FC<UnfoldProps> = (props) => {
       })
     }
   }
-
   const showNode = () => {
     const {
       paddingLeft,
@@ -203,7 +205,6 @@ const Unfold: React.FC<UnfoldProps> = (props) => {
       width,
       height
     } = prevCssProp.current
-
     containerRef.current!.style.display = nodeDisplay.current
     containerRef.current!.style.overflowX = 'hidden'
     containerRef.current!.style.overflowY = 'hidden'
@@ -247,9 +248,9 @@ const Unfold: React.FC<UnfoldProps> = (props) => {
   })
 
   const handleTransitionEnd: TransitionEventHandler = () => {
-    const {overflowX, overflowY, overflow} = prevCssProp.current
-    const {width, height} = prevSize.current
-    setNodeStyle({overflowX, overflowY, overflow, width, height})
+    const { overflowX, overflowY, overflow } = prevCssProp.current
+    const { width, height } = prevSize.current
+    setNodeStyle({ overflowX, overflowY, overflow, width, height })
     if (!visible) {
       containerRef.current!.style.display = 'none'
     }

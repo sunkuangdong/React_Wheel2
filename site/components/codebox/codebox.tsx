@@ -10,7 +10,7 @@ type CodeBoxProps = {
 
 const CodeBox: React.FC<CodeBoxProps> = (props) => {
   const { title, description, children } = props
-  const [codeVisible, setCodeVisible] = useState<boolean>(false)
+  const [codeVisible, setCodeVisible] = useState<boolean>(true)
   const toggleVisible = () => {
     setCodeVisible(!codeVisible)
   }
