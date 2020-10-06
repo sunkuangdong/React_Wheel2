@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 git add .
-git commit -m '优化样式'
+git commit -m '优化打包速度'
 git push
 
 yarn doc

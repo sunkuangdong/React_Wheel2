@@ -8,6 +8,7 @@ module.exports = Object.assign({}, base, {
     // 出口路径
     path: path.resolve(__dirname, 'doc'),
   },
+  // 入口
   entry: {
     example: "./example.tsx"
   },
