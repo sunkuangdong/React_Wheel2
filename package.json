@@ -44,7 +44,7 @@
     "html-webpack-plugin": "^4.3.0",
     "jest": "^24.3.1",
     "jest-junit": "^6.3.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "prism-react-renderer": "^1.1.1",
     "raw-loader": "^4.0.1",
     "react-router-dom": "^5.2.0",
